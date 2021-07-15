@@ -1,6 +1,6 @@
 # Kernels
 
-This kernel folder is used to build a kernel image for hook and is based upon the kernel builder from [linuxkit](https://github.com/linuxkit/linuxkit).
+This kernel folder is used to build a kernel image for ThanOS and is based upon the kernel builder from [linuxkit](https://github.com/linuxkit/linuxkit).
 
 ## Compile the kernel
 
@@ -54,10 +54,15 @@ cd linux-5.10.11
 make menuconfig
 ```
 
+Load the current configuration file
+```
+/src/config-5.10.x-{arch}
+```
+
 Copy the new configuration:
 
 ```
-cp .config /src/config-5.10.x-x86_64
+cp .config /src/config-5.10.x-{arch}
 ```
 
 We can now build our new kernel !

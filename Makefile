@@ -27,16 +27,6 @@ dev-thanos-dockerBuild:
 	cd thanos-docker; docker buildx build --load -t $(ORG)/thanos-docker:0.0 .; docker push $(ORG)/thanos-docker:0.0 
 
 
-
-dev-dist: dev dev-convert
-	rm -rf ./dist ./convert
-	mkdir ./dist
-	# mv ./initramfs-${ARCH}.gz ./dist/initramfs-${ARCH}
-	# mv ./out/thanos-${ARCH}-kernel ./dist/vmlinuz-${ARCH}
-	# rm -rf out
-	# cd ./dist && tar -czvf ../thanos-${GIT_VERSION}.tar.gz ./*
-
-
 .PHONY: clean
 clean:
 	cp ./out/* ./

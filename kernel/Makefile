@@ -41,7 +41,7 @@ DIRTY=$(shell  git update-index -q --refresh && git diff-index --quiet HEAD -- $
 endif
 endif
 
-KERNEL_PLATFORMS:=linux/amd64,linux/arm64
+KERNEL_PLATFORMS:=linux/amd64
 PERF_PLATFORMS:=linux/amd64
 BCC_PLATFORMS:=linux/amd64
 

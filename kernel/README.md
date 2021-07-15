@@ -10,9 +10,7 @@ The Makefile will build the multiarchitecture `5.10.x` kernel images based upon 
 make build_5.10.x
 ```
 
-**Note** Use `-j <thread count>` with the make command to dramatically speed up build time.
-
-To build a kernel for local testing for just a single architecture, usue the devbuild targets:
+To build a kernel for local testing for just a single architecture, use the devbuild targets:
 
 ```
 make devbuild_5.10.x
@@ -52,7 +50,7 @@ docker run --rm -ti -v $(pwd):/src:z --platform=linux/arm64 quay.io/tinkerbell/k
 We can now navigate to the source code and run the UI for configuring the kernel:
 
 ```
-cd linux-5-10
+cd linux-5.10.11
 make menuconfig
 ```
 

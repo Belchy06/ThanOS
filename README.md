@@ -21,9 +21,9 @@ The ThanOS project predominantly uses [linuxkit](https://github.com/linuxkit/lin
 
 To this minimal build, we've added our own container that will provide the functionality needed for applications that generate visual and audio outputs to run successfully:
 
-### thanos-docker
+### Stark
 
-The `thanos-docker` container builds upon the upstream `dind` (docker-in-docker) container and adds the additional functionality to run an X11 server. The X11 socket can then be bind mounted into any other container that produces a graphical output
+The `stark` container builds upon the upstream `dind` (docker-in-docker) container and adds the additional functionality to run an X11 and ALSA server. An application that produces an audio visual output such as Firefox can then be run
 
 
 ## Building ThanOS

@@ -17,10 +17,10 @@ export DOCKER_CLI_EXPERIMENTAL := enabled
 
 # Name and Org on Hub
 ORG?=quay.io/tinkerbell
-IMAGE:=hook-kernel
-IMAGE_BCC:=hook-kernel-bcc
-IMAGE_PERF:=hook-kernel-perf
-IMAGE_ZFS:=hook-zfs-kmod
+IMAGE:=thanos-kernel
+IMAGE_BCC:=thanos-kernel-bcc
+IMAGE_PERF:=thanos-kernel-perf
+IMAGE_ZFS:=thanos-zfs-kmod
 
 # You can specify an extra options for the Makefile. This will:
 # - append a config$(EXTRA) to the kernel config for your kernel/arch

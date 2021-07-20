@@ -1,2 +1,5 @@
 out
 old
+*.iso
+firefox
+no-firefox

@@ -51,7 +51,7 @@ services:
      - /sys:/sys
      - /var:/var
  # Expose docker binary (it's obviously available, but this binds it into the right place).
-     - /containers/services/stark/rootfs/usr/local/bin/docker:/usr/local/bin/docker
+     # - /containers/services/stark/rootfs/usr/local/bin/docker:/usr/local/bin/docker
   - name: stark
     image: docker.io/belchy06/stark:0.0
     capabilities:

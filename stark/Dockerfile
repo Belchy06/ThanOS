@@ -16,4 +16,6 @@ RUN apk add firefox pciutils-libs ttf-dejavu ttf-liberation
 
 COPY . .
 RUN chmod +x ./start.sh
+RUN chmod +x ./pause.sh
 ENTRYPOINT ["/bin/sh", "-c", "./start.sh && export DISPLAY=:0 && firefox"]
+# ENTRYPOINT ["/bin/sh", "-c", "export DISPLAY=:0 && ./pause.sh"]

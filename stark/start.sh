@@ -20,12 +20,19 @@ echo "========"
 echo "Starting X11"
 echo "========"
 nohup Xorg :0 -config /root/xorg.conf.new -ac > xorg.out < /dev/null &
-export DISPLAY=:0
 
 # Unmute ALSA
 echo "========"
 echo "Unmuting ALSA"
 echo "========"
 amixer -c 0 set Master playback 100% unmute
-# Start Firefox container
-# docker run -it --rm -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v /dev:/dev --privileged belchy06/firefox:alpine
+
+# Start Firefox with current resolution
+export DISPLAY=:0
+# Set screen size to be highest possible resolution
+xrandr -s 1
+X=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f1)
+echo $X
+Y=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f2)
+echo $Y
+firefox -width $X -height $Y --kiosk --private-window `cat /var/lib/docker/config`

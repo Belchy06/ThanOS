@@ -3,7 +3,7 @@ FROM docker:20.10.7-dind
 
 # Install X11 packages
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
-RUN apk update; apk add alpine-conf xf86-video-vmware xf86-input-mouse xf86-input-keyboard openrc
+RUN apk update; apk add alpine-conf xf86-video-vmware xf86-input-mouse xf86-input-keyboard openrc xrandr
 RUN mkdir /run/openrc
 RUN touch /run/openrc/softlevel 
 
@@ -17,5 +17,5 @@ RUN apk add firefox pciutils-libs ttf-dejavu ttf-liberation
 COPY . .
 RUN chmod +x ./start.sh
 RUN chmod +x ./pause.sh
-ENTRYPOINT ["/bin/sh", "-c", "./start.sh && export DISPLAY=:0 && firefox"]
-# ENTRYPOINT ["/bin/sh", "-c", "export DISPLAY=:0 && ./pause.sh"]
+ENTRYPOINT ["/bin/sh", "-c", "./start.sh"]
+# ENTRYPOINT ["/bin/sh", "-c", "./start.sh && export DISPLAY=:0 && ./pause.sh"]

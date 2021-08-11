@@ -30,9 +30,11 @@ amixer -c 0 set Master playback 100% unmute
 # Start Firefox with current resolution
 export DISPLAY=:0
 # Set screen size to be highest possible resolution
-xrandr -s 1
+resx=$(cat /var/lib/docker/config | jq '.resx')
+resy=$(cat /var/lib/docker/config | jq '.resy')
+xrandr -s ${resx}x${resy}
 X=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f1)
 echo $X
 Y=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f2)
 echo $Y
-firefox -width $X -height $Y --kiosk --private-window `cat /var/lib/docker/config`
+firefox -width $X -height $Y --kiosk --private-window `cat /var/lib/docker/config | jq -r '.url'`

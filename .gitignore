@@ -4,3 +4,4 @@ old
 firefox
 no-firefox
 *.gz
+*.qcow2

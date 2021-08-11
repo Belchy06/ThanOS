@@ -1,5 +1,5 @@
 kernel:
-  image: belchy06/thanos-kernel:5.10.11
+  image: belchy06/thanos-kernel:5.10.11-466573c53380d2d2d249e7adca61846e5ca46ef8-dirty 
   cmdline: "console=tty0 console=ttyS0 console=ttyAMA0 console=ttysclp0"
 init:
   - linuxkit/init:v0.8
@@ -50,10 +50,8 @@ services:
      - /dev:/dev
      - /sys:/sys
      - /var:/var
- # Expose docker binary (it's obviously available, but this binds it into the right place).
-     # - /containers/services/stark/rootfs/usr/local/bin/docker:/usr/local/bin/docker
-  - name: stark
-    image: docker.io/belchy06/stark:0.0
+  - name: corvus
+    image: docker.io/belchy06/corvus:0.0
     capabilities:
      - all
     net: host

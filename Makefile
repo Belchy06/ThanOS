@@ -10,7 +10,7 @@ default: dev clean
 
 LINUXKIT_CONFIG ?= thanos.yaml
 
-dev: dev-thanos-starkBuild
+dev: dev-thanos-corvusBuild
 ifeq ($(ARCH),x86_64)
 dev: image-amd64
 endif
@@ -23,8 +23,8 @@ image-amd64:
 	linuxkit build -docker -format $(FORMAT) -name thanos-x86_64 -dir out $(LINUXKIT_CONFIG)
 
 
-dev-thanos-starkBuild:
-	cd stark; docker buildx build --load -t $(ORG)/stark:0.0 .; docker push $(ORG)/stark:0.0 
+dev-thanos-corvusBuild:
+	cd corvus; docker buildx build --load -t $(ORG)/corvus:0.0 .; docker push $(ORG)/corvus:0.0 
 
 
 .PHONY: clean

@@ -38,6 +38,16 @@ The `start.sh`, once run, executes a number of steps:
 
 <br/>
 
+
+## Pixel Streaming
+One of the use cases ThanOS is primarily designed for, is to be a thin client that runs a web browser with the intention of receiving a pixel streaming output. <br/> We've included the necessary drivers to have audio and video output, as well as keyboard and mouse input. 
+
+For users wanting to use ThanOS in a pixel streaming deployment, point the `url` field in the `writefile` action of your [Tinkerbell](https://github.com/belchy06/sandbox) template to the address of your pixel streaming application. 
+
+eg http://mypixelstreamingurl
+
+<br/>
+
 ## Building ThanOS
 ### Working on an Ubuntu 20.04 host
 ```

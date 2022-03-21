@@ -22,7 +22,7 @@ The Makefile can build a docker environment to configure a new kernel, it can ge
 
 **NOTE** This builder makes use of the docker `buildx` functionality that can be enabled with `docker buildx create --use`
 
-Making a **multi-arch** image and pushing to the quay.io repository:
+Making a **multi-arch** image and pushing to the repository specified in the Makefile:
 
 ```
 make kconfig
@@ -37,14 +37,14 @@ make kconfig_amd64
 We can now run this image:
 
 ```
-docker run --rm -ti -v $(pwd):/src:z quay.io/tinkerbell/kconfig
+docker run --rm -ti -v $(pwd):/src:z docker.io/belchy06/kconfig
 ```
 
 If modifying the config for a different architecture, it is best to specify the platform to
 avoid any surprises when attempting to build the kernel later.
 
 ```
-docker run --rm -ti -v $(pwd):/src:z --platform=linux/arm64 quay.io/tinkerbell/kconfig
+docker run --rm -ti -v $(pwd):/src:z --platform=linux/arm64 docker.io/belchy06/kconfig
 ```
 
 We can now navigate to the source code and run the UI for configuring the kernel:
